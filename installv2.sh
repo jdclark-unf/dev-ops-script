@@ -19,11 +19,11 @@ sudo mv apache-maven-3.5.3 /usr/apache
 sudo chmod 777 /usr/apache/apache-maven-3.5.3
 echo "M2_HOME=/usr/apache/apache-maven-3.5.3" >> ~/.bashrc
 echo "export M2_HOME" >> ~/.bashrc
-echo "export PATH=$PATH:$M2_HOME/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:\$M2_HOME/bin" >> ~/.bashrc
 echo "maven installed"
 
 echo "installing jenkins"
-https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/jenkins-2.89.4-1.1.noarch.rpm
+wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/jenkins-2.89.4-1.1.noarch.rpm
 sudo yum install jenkins-2.89.4-1.1.noarch.rpm -y
 echo "jenkins installed now starting"
 sudo service jenkins start
