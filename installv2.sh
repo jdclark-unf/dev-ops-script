@@ -3,10 +3,13 @@
 sudo mkdir /usr/apache
 sudo chmod 777 /usr/apache
 
+cd /tmp
+
 echo "installing java 8"
 wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/jdk-8u171-linux-x64.rpm
 sudo yum install -y jdk-8u171-linux-x64.rpm
-export PATH=/usr/java/jdk1.8.0_171-amd64/bin/
+echo "JAVA_HOME=/usr/java/latest" >> ~/.bashrc
+echo "export JAVA_HOME" >> ~/.bashrc
 echo "java 8 installed and configured"
 
 echo "installing maven"
@@ -14,6 +17,8 @@ wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/apache-maven-3.5
 tar xvf apache-maven-3.5.3-bin.tar.gz
 sudo mv apache-maven-3.5.3 /usr/apache
 sudo chmod 777 /usr/apache/apache-maven-3.5.3
+echo "M2_HOME=/usr/apache/apache-maven-3.5.3" >> ~/.bashrc
+echo "export M2_HOME" >> ~/.bashrc
 echo "maven installed"
 
 echo "installing jenkins"
@@ -25,8 +30,9 @@ echo "jenkins started"
 
 
 echo "downloading tomcat tar.gz"
-cd /opt
 sudo wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/apache-tomcat-8.5.30.tar.gz
 sudo tar -xzvf apache-tomcat-8.5.30.tar.gz
 echo "giving ec2-user permission for tomcat"
 sudo chmod 777 apache-tomcat-8.5.30
+echo "CATALINA_HOME=/usr/apache/apache-tomcat-8.5.30"  >> ~/.bashrc
+echo "export CATALINA_HOME"  >> ~/.bashrc
