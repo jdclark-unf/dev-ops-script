@@ -27,9 +27,8 @@ echo "jenkins started"
 
 echo "downloading tomcat tar.gz"
 cd /opt
-sudo wget http://apache.claz.org/tomcat/tomcat-8/v8.5.28/bin/apache-tomcat-8.5.28.tar.gz
-echo "unpackinging tomcat"
-sudo tar -xzvf apache-tomcat-8.5.28.tar.gz
+sudo wget http://http://mirror.cogentco.com/pub/apache/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz
+sudo tar -xzvf apache-tomcat-8.5.30.tar.gz
 echo "giving ec2-user permission for tomcat"
-sudo chmod 777 apache-tomcat-8.5.28
+sudo chmod 777 apache-tomcat-8.5.30
 
