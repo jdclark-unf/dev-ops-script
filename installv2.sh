@@ -19,6 +19,7 @@ sudo mv apache-maven-3.5.3 /usr/apache
 sudo chmod 777 /usr/apache/apache-maven-3.5.3
 echo "M2_HOME=/usr/apache/apache-maven-3.5.3" >> ~/.bashrc
 echo "export M2_HOME" >> ~/.bashrc
+echo "export PATH=$PATH:$M2_HOME/bin" >> ~/.bashrc
 echo "maven installed"
 
 echo "installing jenkins"
@@ -34,5 +35,6 @@ sudo wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/apache-tomc
 sudo tar -xzvf apache-tomcat-8.5.30.tar.gz
 echo "giving ec2-user permission for tomcat"
 sudo chmod 777 apache-tomcat-8.5.30
+sudo mv apache-tomcat-8.5.30 /usr/apache/
 echo "CATALINA_HOME=/usr/apache/apache-tomcat-8.5.30"  >> ~/.bashrc
 echo "export CATALINA_HOME"  >> ~/.bashrc
