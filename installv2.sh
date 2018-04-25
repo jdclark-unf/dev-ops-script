@@ -20,7 +20,24 @@ sudo chmod 777 /usr/apache/apache-maven-3.5.3
 echo "M2_HOME=/usr/apache/apache-maven-3.5.3" >> ~/.bashrc
 echo "export M2_HOME" >> ~/.bashrc
 echo "export PATH=\$PATH:\$M2_HOME/bin" >> ~/.bashrc
+source  ~/.bashrc
 echo "maven installed"
+
+echo "downloading tomcat tar.gz"
+sudo wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/apache-tomcat-8.5.30.tar.gz
+sudo tar -xzvf apache-tomcat-8.5.30.tar.gz
+echo "giving ec2-user permission for tomcat"
+sudo chmod 777 -R apache-tomcat-8.5.30
+sudo mv apache-tomcat-8.5.30 /usr/apache/
+sudo sed 's/<Connector port="8080"/<Connector port="8090"/' /usr/apache/apache-tomcat-8.5.30/conf/server.xml > /usr/apache/apache-tomcat-8.5.30/conf/server.xml
+sh 
+echo "CATALINA_HOME=/usr/apache/apache-tomcat-8.5.30"  >> ~/.bashrc
+echo "export CATALINA_HOME"  >> ~/.bashrc
+
+echo "installing node"
+curl -o- https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/nvm-install.sh | bash
+. ~/.nvm/nvm.sh
+nvm install --lts
 
 echo "installing jenkins"
 wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/jenkins-2.89.4-1.1.noarch.rpm
@@ -30,11 +47,3 @@ sudo service jenkins start
 echo "jenkins started"
 
 
-echo "downloading tomcat tar.gz"
-sudo wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/apache-tomcat-8.5.30.tar.gz
-sudo tar -xzvf apache-tomcat-8.5.30.tar.gz
-echo "giving ec2-user permission for tomcat"
-sudo chmod 777 apache-tomcat-8.5.30
-sudo mv apache-tomcat-8.5.30 /usr/apache/
-echo "CATALINA_HOME=/usr/apache/apache-tomcat-8.5.30"  >> ~/.bashrc
-echo "export CATALINA_HOME"  >> ~/.bashrc
