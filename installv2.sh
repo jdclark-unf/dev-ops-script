@@ -8,19 +8,23 @@ cd /tmp
 echo "installing java 8"
 wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/jdk-8u171-linux-x64.rpm
 sudo yum install -y jdk-8u171-linux-x64.rpm
-echo "JAVA_HOME=/usr/java/latest" >> ~/.bashrc
-echo "export JAVA_HOME" >> ~/.bashrc
 echo "java 8 installed and configured"
 
+# this seems to work but then jenkins doesn't recogize mvn
+# echo "installing maven"
+# wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/apache-maven-3.5.3-bin.tar.gz
+# tar xvf apache-maven-3.5.3-bin.tar.gz
+# sudo mv apache-maven-3.5.3 /usr/apache
+# sudo chmod 777 /usr/apache/apache-maven-3.5.3
+# echo "M2_HOME=/usr/apache/apache-maven-3.5.3" >> ~/.bashrc
+# echo "export M2_HOME" >> ~/.bashrc
+# echo "export PATH=\$PATH:\$M2_HOME/bin" >> ~/.bashrc
+# sudo exec  ~/.bashrc
+# echo "maven installed"
 echo "installing maven"
-wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/apache-maven-3.5.3-bin.tar.gz
-tar xvf apache-maven-3.5.3-bin.tar.gz
-sudo mv apache-maven-3.5.3 /usr/apache
-sudo chmod 777 /usr/apache/apache-maven-3.5.3
-echo "M2_HOME=/usr/apache/apache-maven-3.5.3" >> ~/.bashrc
-echo "export M2_HOME" >> ~/.bashrc
-echo "export PATH=\$PATH:\$M2_HOME/bin" >> ~/.bashrc
-sudo exec  ~/.bashrc
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
 echo "maven installed"
 
 echo "downloading tomcat tar.gz"
