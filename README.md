@@ -8,5 +8,6 @@
 * it will make you select the version for java and javac
 # jenkins
 * jenkins should now be running on port 8080 of the ec2 with no addition to the url after the port
+* to get the password run `sudo cat /var/lib/jenkins/secrets/initialAdminPassword` or if the path on jenkins says differently use the path it specifies
 # tomcat
 * there will be a separate tomcat on port 8090 that you can deploy wars to
