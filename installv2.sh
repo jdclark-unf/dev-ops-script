@@ -20,7 +20,7 @@ sudo chmod 777 /usr/apache/apache-maven-3.5.3
 echo "M2_HOME=/usr/apache/apache-maven-3.5.3" >> ~/.bashrc
 echo "export M2_HOME" >> ~/.bashrc
 echo "export PATH=\$PATH:\$M2_HOME/bin" >> ~/.bashrc
-exec  ~/.bashrc
+sudo exec  ~/.bashrc
 echo "maven installed"
 
 echo "downloading tomcat tar.gz"
