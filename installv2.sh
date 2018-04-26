@@ -41,9 +41,9 @@ echo "CATALINA_HOME=/usr/apache/apache-tomcat-8.5.30"  >> ~/.bashrc
 echo "export CATALINA_HOME"  >> ~/.bashrc
 
 echo "installing node"
-sudo curl -o- https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/nvm-install.sh | bash
-sudo . ~/.nvm/nvm.sh
-sudo nvm install --lts
+curl -o- https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/nvm-install.sh | bash
+. ~/.nvm/nvm.sh
+nvm install --lts
 
 echo "installing jenkins"
 wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/jenkins-2.89.4-1.1.noarch.rpm
