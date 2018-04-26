@@ -20,7 +20,7 @@ pipeline {
        stage('Download') {
            steps {
               // Download code from a GitHub repository
-              git 'https://github.com/revaturelabs/janus-webapp.git'
+              git branch: 'staging', url: 'https://github.com/revalution/janus-webapp.git'
            }
         }
 
