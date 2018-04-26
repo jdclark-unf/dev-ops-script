@@ -29,7 +29,7 @@ sudo tar -xzvf apache-tomcat-8.5.30.tar.gz
 echo "giving ec2-user permission for tomcat"
 sudo chmod 777 -R apache-tomcat-8.5.30
 sudo mv apache-tomcat-8.5.30 /usr/apache/
-sudo sed 's/<Connector port="8080"/<Connector port="8090"/' /usr/apache/apache-tomcat-8.5.30/conf/server.xml > /usr/apache/apache-tomcat-8.5.30/conf/server.xml 
+sudo sed -i 's/<Connector port="8080"/<Connector port="8090"/' /usr/apache/apache-tomcat-8.5.30/conf/server.xml
 sh /usr/apache/apache-tomcat-8.5.30/bin/startup.sh
 echo "CATALINA_HOME=/usr/apache/apache-tomcat-8.5.30"  >> ~/.bashrc
 echo "export CATALINA_HOME"  >> ~/.bashrc
