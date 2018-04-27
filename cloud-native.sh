@@ -9,9 +9,8 @@ sudo update-alternatives --config javac
 echo "java 8 installed and configured"
 
 echo "installing node"
-curl -o- https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/nvm-install.sh | bash
-. ~/.nvm/nvm.sh
-nvm install --lts
+curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+sudo yum -y install nodejs
 
 echo "installing jenkins"
 wget https://s3-us-west-2.amazonaws.com/blake-dev-ops-resources/jenkins-2.89.4-1.1.noarch.rpm
