@@ -12,3 +12,6 @@
 * to get the password run `sudo cat /var/lib/jenkins/secrets/initialAdminPassword` or if the path on jenkins says differently use the path it specifies
 # tomcat
 * there will be a separate tomcat on port 8090 that you can deploy wars to
+
+# demo jenkins pipeline
+For an example of deploying a spring boot and angular project with a Jenkinsfile go to [this repo](https://github.com/btkruppa/angular-spring-boo-dev-ops)
