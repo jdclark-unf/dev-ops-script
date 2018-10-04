@@ -4,7 +4,8 @@
 * install git with `sudo yum install git -y`  
 * use git to clone this repo with the script to install the rest of the software `git clone https://github.com/btkruppa/dev-ops-script.git`  
 * navigate to the repo directory `cd dev-ops-script`
-* run the script to install required software on the ec2, navigate into the repo and run `sh installv2.sh`
+* run the script to install required software on the ec2, navigate into the repo and run `sh installv.sh`
+* I have deprecated the v2 scripts since they were using software hosted on my s3 bucket that i made private
 * it will make you select the version for java and javac
 * after it runs if you want to do mvn commands exit and re-enter the ec2. If someone can get this better that would be great.
 # jenkins
