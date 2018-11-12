@@ -21,11 +21,15 @@ curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
 sudo yum -y install nodejs
 
 echo "downloading tomcat tar.gz"
-cd /opt
-sudo wget http://mirror.cogentco.com/pub/apache/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz
-sudo tar -xzvf apache-tomcat-8.5.30.tar.gz
+sudo wget http://ftp.wayne.edu/apache/tomcat/tomcat-8/v8.5.35/bin/apache-tomcat-8.5.35.tar.gz
+sudo tar -xzvf apache-tomcat-8.5.35.tar.gz
 echo "giving ec2-user permission for tomcat"
-sudo chmod 777 apache-tomcat-8.5.30
+sudo chmod 777 -R apache-tomcat-8.5.35
+sudo mv apache-tomcat-8.5.35 /usr/apache/
+sudo sed -i 's/<Connector port="8080"/<Connector port="8090"/' /usr/apache/apache-tomcat-8.5.35/conf/server.xml
+sudo sh /usr/apache/apache-tomcat-8.5.35/bin/startup.sh
+echo "CATALINA_HOME=/usr/apache/apache-tomcat-8.5.35"  >> ~/.bashrc
+echo "export CATALINA_HOME"  >> ~/.bashrc
 
 echo "installing jenkins"
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
