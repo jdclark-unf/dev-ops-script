@@ -21,6 +21,7 @@ curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
 sudo yum -y install nodejs
 
 echo "downloading tomcat tar.gz"
+sudo cd /tmp
 sudo wget http://ftp.wayne.edu/apache/tomcat/tomcat-8/v8.5.35/bin/apache-tomcat-8.5.35.tar.gz
 sudo tar -xzvf apache-tomcat-8.5.35.tar.gz
 echo "giving ec2-user permission for tomcat"
