@@ -1,3 +1,7 @@
+
+# Current State
+* The install script currently has a problem with Jenkins, the version of jenkins it is downloading seems to have a bug after entering the initial password.
+* If you are trying to use it let me know and I can open up the v2 script for your class which has a working of versions being pulled from my s3 bucket.
 # setup
 * create an ec2.  
 * update the ec2 with `sudo yum update -y`  
