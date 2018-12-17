@@ -1,0 +1,11 @@
+#come from https://github.com/1810-java-blake/demos/tree/master/week4/LeagueOfLegendsApi
+version: 0.2
+
+phases:
+  post_build:
+    commands:
+      - cd week4/LeagueOfLegendsApi && mvn clean package
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'week4/LeagueOfLegendsApi/target/LeagueOfLegendsApi'
