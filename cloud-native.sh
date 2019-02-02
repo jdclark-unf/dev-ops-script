@@ -9,7 +9,7 @@ sudo update-alternatives --config javac
 echo "java 8 installed and configured"
 
 echo "installing node"
-curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
 sudo yum -y install nodejs
 
 echo "installing jenkins"
